@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         Button profileButton = findViewById(R.id.btnProfile);
         Button locationButton = findViewById(R.id.btnLocation);
         Button userProfileButton = findViewById(R.id.btnUserProfile);
+        Button reportConditionsButton = findViewById(R.id.btnReportConditions);
 
 //        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
 //            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -60,6 +61,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 Intent intent = new Intent(MainActivity.this, UserProfileActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        reportConditionsButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(MainActivity.this, ReportConditionsActivity.class);
                 startActivity(intent);
             }
         });
