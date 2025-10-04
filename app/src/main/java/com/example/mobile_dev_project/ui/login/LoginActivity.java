@@ -22,12 +22,13 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.mobile_dev_project.BaseActivity;
 import com.example.mobile_dev_project.R;
 import com.example.mobile_dev_project.ui.login.LoginViewModel;
 import com.example.mobile_dev_project.ui.login.LoginViewModelFactory;
 import com.example.mobile_dev_project.databinding.ActivityLoginBinding;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends BaseActivity {
 
     private LoginViewModel loginViewModel;
     private ActivityLoginBinding binding;
