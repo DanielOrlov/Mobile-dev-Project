@@ -1,53 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/content_container"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
-    android:gravity="center">
+    android:background="@android:color/white">
 
-    <TextView
-        android:id="@+id/textViewMapTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Map Page"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="16dp"
-        android:layout_gravity="center_horizontal"/>
-    <GridLayout
-        android:id="@+id/gridMapPlaceholder"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:columnCount="10"
-        android:rowCount="15"
-        android:layout_marginBottom="16dp"
-        android:orientation="horizontal">
-
-    </GridLayout>
-
-    <!-- Dummy interaction buttons -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:weightSum="2">
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
 
-        <Button
-            android:id="@+id/buttonZoomIn"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Zoom In"/>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_marginBottom="24dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="8dp">
 
-        <Button
-            android:id="@+id/buttonZoomOut"
-            android:layout_width="0dp"
+            <ImageView
+                android:id="@+id/mapImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/sample_map" />
+        </androidx.cardview.widget.CardView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLogin"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Zoom Out"/>
+            android:text="Login"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp"
+            app:cornerRadius="24dp"
+            android:backgroundTint="#4CAF50"
+            android:textColor="@android:color/white"
+            app:icon="@drawable/ic_login"
+            app:iconPadding="8dp"
+            app:iconGravity="textStart" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLocation"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Location Profile"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp"
+            app:cornerRadius="24dp"
+            android:backgroundTint="#FF9800"
+            android:textColor="@android:color/white"
+            app:icon="@drawable/ic_location"
+            app:iconPadding="8dp"
+            app:iconGravity="textStart" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnUserProfile"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="User Profile"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp"
+            app:cornerRadius="24dp"
+            android:backgroundTint="#9C27B0"
+            android:textColor="@android:color/white"
+            app:icon="@drawable/ic_user"
+            app:iconPadding="8dp"
+            app:iconGravity="textStart" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnReportConditions"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Report Conditions"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:cornerRadius="24dp"
+            android:backgroundTint="#F44336"
+            android:textColor="@android:color/white"
+            app:icon="@drawable/ic_report"
+            app:iconPadding="8dp"
+            app:iconGravity="textStart" />
     </LinearLayout>
-</LinearLayout>
+</ScrollView>

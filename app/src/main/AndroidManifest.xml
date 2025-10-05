@@ -12,7 +12,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MobiledevProject">
 
-        <!-- Login Activity (only once) -->
+        <!-- MapActivity is now the main launcher activity -->
+        <activity
+            android:name=".MapActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Other app activities -->
         <activity
             android:name=".LoginActivity"
             android:exported="false"
@@ -29,21 +39,6 @@
         <activity
             android:name=".LocationProfileActivity"
             android:exported="false" />
-        <activity android:name=".MapActivity" />
-
-        <activity
-            android:name=".ProfileActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
 
     </application>
-
 </manifest>
