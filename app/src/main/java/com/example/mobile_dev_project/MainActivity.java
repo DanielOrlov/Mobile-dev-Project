@@ -4,14 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-
-import com.example.mobile_dev_project.ui.login.LoginActivity;
+import com.example.mobile_dev_project.LocationProfileActivity;
+import com.example.mobile_dev_project.BaseActivity;
+import com.example.mobile_dev_project.MapActivity;
 
 public class MainActivity extends BaseActivity {
 
@@ -26,7 +21,10 @@ public class MainActivity extends BaseActivity {
         Button locationButton = findViewById(R.id.btnLocation);
         Button userProfileButton = findViewById(R.id.btnUserProfile);
         Button reportConditionsButton = findViewById(R.id.btnReportConditions);
-
+        Button mapButton = findViewById(R.id.btnMap);
+        mapButton.setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, MapActivity.class));
+        });
 //        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
 //            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
 //            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
