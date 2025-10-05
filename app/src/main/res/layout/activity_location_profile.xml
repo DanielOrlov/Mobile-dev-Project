@@ -1,19 +1,207 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LocationProfileActivity">
+    android:background="@android:color/white">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Here be location profile"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Location Title -->
+        <TextView
+            android:id="@+id/locationName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="The Urban Reader Café"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="#333333"
+            android:layout_marginBottom="4dp" />
+
+        <!-- Address -->
+        <TextView
+            android:id="@+id/locationAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="123 Main St, Anytown, CA"
+            android:textColor="#777777"
+            android:textSize="14sp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Horizontal Image Scroll -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_marginBottom="16dp"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="160dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="12dp"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="6dp">
+
+                    <ImageView
+                        android:id="@+id/image1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:contentDescription="Image 1"
+                        android:src="@drawable/image1" />
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="160dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="12dp"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="6dp">
+
+                    <ImageView
+                        android:id="@+id/image2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:contentDescription="Image 2"
+                        android:src="@drawable/image2" />
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="160dp"
+                    android:layout_height="match_parent"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="6dp">
+
+                    <ImageView
+                        android:id="@+id/image3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:contentDescription="Image 3"
+                        android:src="@drawable/image3" />
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <!-- Key Tags -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Key Tags"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="#333333"
+            android:layout_marginBottom="8dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/tagVeryQuiet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Very Quiet"
+                android:textColor="#00796B"
+                android:backgroundTint="#E0F7FA"
+                app:cornerRadius="20dp"
+                android:layout_marginEnd="8dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/tagGoodWiFi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Good Wi-Fi"
+                android:textColor="#00796B"
+                android:backgroundTint="#E0F7FA"
+                app:cornerRadius="20dp"
+                android:layout_marginEnd="8dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/tagCozy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cozy"
+                android:textColor="#00796B"
+                android:backgroundTint="#E0F7FA"
+                app:cornerRadius="20dp" />
+        </LinearLayout>
+
+        <!-- Action Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="24dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCheckIn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Check-In"
+                android:textColor="@android:color/white"
+                android:backgroundTint="#4CAF50"
+                app:cornerRadius="24dp"
+                android:layout_marginEnd="8dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnFavorite"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Add to Favorites"
+                android:textColor="@android:color/white"
+                android:backgroundTint="#2196F3"
+                app:cornerRadius="24dp" />
+        </LinearLayout>
+
+        <!-- User Reviews / Tips Section -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="User Reviews / Tips"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#333333" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:text="Sarah K: “Absolutely LOVE this spot! Great coffee and plenty of outlets for deep work.”"
+                android:textColor="#555555"
+                android:textSize="14sp" />
+        </androidx.cardview.widget.CardView>
+
+        <!-- Find Buddy Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnFindBuddy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Find a Buddy"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#009688"
+            app:cornerRadius="24dp"
+            android:layout_marginTop="28dp" />
+    </LinearLayout>
+</ScrollView>

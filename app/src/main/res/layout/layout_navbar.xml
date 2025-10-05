@@ -9,35 +9,12 @@
     android:paddingHorizontal="16dp">
 
     <Button
-        android:id="@+id/btnHome"
+        android:id="@+id/buttonToGoHome"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="Home"
-        android:textAllCaps="false"/>
-
-<!--    <Button-->
-<!--        android:id="@+id/btnUserProfile"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_weight="1"-->
-<!--        android:text="User Profile"-->
-<!--        android:textAllCaps="false"/>-->
-<!--    <Button-->
-<!--        android:id="@+id/btnLocation"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_weight="1"-->
-<!--        android:text="User Profile"-->
-<!--        android:textAllCaps="false"/>-->
-
-<!--    <Button-->
-<!--        android:id="@+id/btnReportConditions"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_weight="1"-->
-<!--        android:text="Report Conditions"-->
-<!--        android:textAllCaps="false"/>-->
+        android:textAllCaps="false" />
 
     <Button
         android:id="@+id/btnLogin"
@@ -45,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="Login"
-        android:textAllCaps="false"/>
+        android:textAllCaps="false" />
 
     <Button
         android:id="@+id/btnSettings"
@@ -53,5 +30,5 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="Settings"
-        android:textAllCaps="false"/>
+        android:textAllCaps="false" />
 </LinearLayout>

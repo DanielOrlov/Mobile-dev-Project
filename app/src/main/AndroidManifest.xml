@@ -11,31 +11,34 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MobiledevProject">
+
+        <!-- MapActivity is now the main launcher activity -->
         <activity
-            android:name=".ReportConditionsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".UserProfileActivity"
-            android:exported="false" />
-        <activity
-            android:name=".LocationProfileActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ProfileActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.login.LoginActivity"
-            android:exported="false"
-            android:label="@string/title_activity_login" />
-        <activity
-            android:name=".MainActivity"
+            android:name=".MapActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    </application>
 
+        <!-- Other app activities -->
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false"
+            android:label="@string/title_activity_login" />
+
+        <activity
+            android:name=".ReportConditionsActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".UserProfileActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".LocationProfileActivity"
+            android:exported="false" />
+
+    </application>
 </manifest>

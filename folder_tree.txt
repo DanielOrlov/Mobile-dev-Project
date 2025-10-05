@@ -1,0 +1,110 @@
+.
+├── app
+│   ├── build.gradle.kts
+│   ├── proguard-rules.pro
+│   └── src
+│       ├── androidTest
+│       │   └── java
+│       │       └── com
+│       │           └── example
+│       │               └── mobile_dev_project
+│       │                   └── ExampleInstrumentedTest.java
+│       ├── main
+│       │   ├── AndroidManifest.xml
+│       │   ├── java
+│       │   │   └── com
+│       │   │       └── example
+│       │   │           └── mobile_dev_project
+│       │   │               ├── BaseActivity.java
+│       │   │               ├── LocationProfileActivity.java
+│       │   │               ├── LoginActivity.java
+│       │   │               ├── MainActivity.java
+│       │   │               ├── MapActivity.java
+│       │   │               ├── ProfileActivity.java
+│       │   │               ├── ReportConditionsActivity.java
+│       │   │               ├── UserProfileActivity.java
+│       │   │               ├── data
+│       │   │               │   ├── LoginDataSource.java
+│       │   │               │   ├── LoginRepository.java
+│       │   │               │   ├── Result.java
+│       │   │               │   └── model
+│       │   │               │       └── LoggedInUser.java
+│       │   │               └── ui
+│       │   │                   └── login
+│       │   │                       ├── LoggedInUserView.java
+│       │   │                       ├── LoginFormState.java
+│       │   │                       ├── LoginResult.java
+│       │   │                       ├── LoginViewModel.java
+│       │   │                       └── LoginViewModelFactory.java
+│       │   ├── new.xml
+│       │   └── res
+│       │       ├── drawable
+│       │       │   ├── avatar.jpg
+│       │       │   ├── ic_launcher_background.xml
+│       │       │   └── ic_launcher_foreground.xml
+│       │       ├── layout
+│       │       │   ├── activity_base.xml
+│       │       │   ├── activity_location_profile.xml
+│       │       │   ├── activity_login.xml
+│       │       │   ├── activity_main.xml
+│       │       │   ├── activity_map.xml
+│       │       │   ├── activity_profile.xml
+│       │       │   ├── activity_report_conditions.xml
+│       │       │   ├── activity_user_profile.xml
+│       │       │   └── layout_navbar.xml
+│       │       ├── layout-w1240dp
+│       │       ├── layout-w936dp
+│       │       ├── mipmap-anydpi-v26
+│       │       │   ├── ic_launcher.xml
+│       │       │   └── ic_launcher_round.xml
+│       │       ├── mipmap-hdpi
+│       │       │   ├── ic_launcher.webp
+│       │       │   └── ic_launcher_round.webp
+│       │       ├── mipmap-mdpi
+│       │       │   ├── ic_launcher.webp
+│       │       │   └── ic_launcher_round.webp
+│       │       ├── mipmap-xhdpi
+│       │       │   ├── ic_launcher.webp
+│       │       │   └── ic_launcher_round.webp
+│       │       ├── mipmap-xxhdpi
+│       │       │   ├── ic_launcher.webp
+│       │       │   └── ic_launcher_round.webp
+│       │       ├── mipmap-xxxhdpi
+│       │       │   ├── ic_launcher.webp
+│       │       │   └── ic_launcher_round.webp
+│       │       ├── values
+│       │       │   ├── colors.xml
+│       │       │   ├── dimens.xml
+│       │       │   ├── strings.xml
+│       │       │   └── themes.xml
+│       │       ├── values-land
+│       │       │   └── dimens.xml
+│       │       ├── values-night
+│       │       │   └── themes.xml
+│       │       ├── values-w1240dp
+│       │       │   └── dimens.xml
+│       │       ├── values-w600dp
+│       │       │   └── dimens.xml
+│       │       └── xml
+│       │           ├── backup_rules.xml
+│       │           └── data_extraction_rules.xml
+│       └── test
+│           └── java
+│               └── com
+│                   └── example
+│                       └── mobile_dev_project
+│                           └── ExampleUnitTest.java
+├── build.gradle.kts
+├── folder_tree.txt
+├── gradle
+│   ├── libs.versions.toml
+│   └── wrapper
+│       ├── gradle-wrapper.jar
+│       └── gradle-wrapper.properties
+├── gradle.properties
+├── gradlew
+├── gradlew.bat
+├── local.properties
+└── settings.gradle.kts
+
+41 directories, 67 files
