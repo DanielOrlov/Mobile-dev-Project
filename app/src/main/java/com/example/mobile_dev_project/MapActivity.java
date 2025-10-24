@@ -4,12 +4,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
+import com.example.mobile_dev_project.data.local.dao.LocationDao;
+import com.example.mobile_dev_project.data.local.db.AppDatabase;
+import com.example.mobile_dev_project.data.local.entity.Location;
+
 public class MapActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
+
+        // ✅ Initialize Room database here
+        AppDatabase db = AppDatabase.getInstance(this);
+        LocationDao locationDao = db.locationDao();
 
         Button loginButton = findViewById(R.id.btnLogin);
         Button locationButton = findViewById(R.id.btnLocation);
