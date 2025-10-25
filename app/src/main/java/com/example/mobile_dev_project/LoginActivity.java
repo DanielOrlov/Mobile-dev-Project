@@ -27,7 +27,7 @@ public class LoginActivity extends AppCompatActivity {
 
         loginButton.setOnClickListener(v -> loadingProgressBar.setVisibility(View.VISIBLE));
         binding.buttonToGoHome.setOnClickListener(v -> {
-            startActivity(new Intent(LoginActivity.this, MapActivity.class));
+            finish();
         });
 
         }
