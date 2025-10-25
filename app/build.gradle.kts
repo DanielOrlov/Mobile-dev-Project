@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.google.gms.google.services)
 }
 
 android {
@@ -36,6 +37,7 @@ android {
 
 dependencies {
     implementation(libs.room.common.jvm)
+    implementation(libs.firebase.auth)
     val room_version = "2.8.3"
     implementation("androidx.room:room-runtime:${room_version}")
     annotationProcessor("androidx.room:room-compiler:$room_version")

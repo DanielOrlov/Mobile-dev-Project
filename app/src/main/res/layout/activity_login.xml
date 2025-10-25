@@ -34,7 +34,7 @@
             android:id="@+id/username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Username"
+            android:hint="Email"
             android:inputType="textPersonName" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -74,6 +74,12 @@
         android:layout_marginBottom="16dp" />
 
     <!-- Go Home Button -->
+    <Button
+        android:id="@+id/register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Register" />
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/buttonToGoHome"
         android:layout_width="match_parent"
@@ -115,26 +121,28 @@
         android:layout_marginBottom="12dp"
         android:elevation="4dp" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnFacebook"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Continue with Facebook"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:backgroundTint="#3b5998"
-        android:textColor="@android:color/white"
-        app:cornerRadius="24dp"
-        app:icon="@drawable/ic_facebook"
-        app:iconPadding="8dp"
-        app:iconGravity="textStart"
-        android:elevation="4dp" />
-
     <!-- Loading Spinner -->
+
     <ProgressBar
         android:id="@+id/loading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:visibility="gone" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnFacebook"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#3b5998"
+        android:elevation="4dp"
+        android:text="Continue with Facebook"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:cornerRadius="24dp"
+        app:icon="@drawable/ic_facebook"
+        app:iconGravity="textStart"
+        app:iconPadding="8dp" />
+
 </LinearLayout>
