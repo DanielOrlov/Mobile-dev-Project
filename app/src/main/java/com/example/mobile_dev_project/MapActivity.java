@@ -3,10 +3,13 @@ package com.example.mobile_dev_project;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.mobile_dev_project.data.local.dao.LocationDao;
 import com.example.mobile_dev_project.data.local.db.AppDatabase;
 import com.example.mobile_dev_project.data.local.entity.Location;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MapActivity extends BaseActivity {
 
