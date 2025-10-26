@@ -11,7 +11,7 @@ import com.example.mobile_dev_project.data.local.dao.UserDao;
 import com.example.mobile_dev_project.data.local.entity.Location;
 import com.example.mobile_dev_project.data.local.entity.User;
 
-@Database(entities = {Location.class, User.class}, version = 2)
+@Database(entities = {Location.class, User.class}, version = 3, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
     public abstract LocationDao locationDao();
     public abstract UserDao userDao();
