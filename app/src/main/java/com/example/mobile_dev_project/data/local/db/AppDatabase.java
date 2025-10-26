@@ -7,11 +7,14 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 import com.example.mobile_dev_project.data.local.dao.LocationDao;
+import com.example.mobile_dev_project.data.local.dao.UserDao;
 import com.example.mobile_dev_project.data.local.entity.Location;
+import com.example.mobile_dev_project.data.local.entity.User;
 
-@Database(entities = {Location.class}, version = 1)
+@Database(entities = {Location.class, User.class}, version = 2)
 public abstract class AppDatabase extends RoomDatabase {
     public abstract LocationDao locationDao();
+    public abstract UserDao userDao();
 
     private static volatile AppDatabase INSTANCE;
 
@@ -23,7 +26,9 @@ public abstract class AppDatabase extends RoomDatabase {
                             context.getApplicationContext(),
                             AppDatabase.class,
                             "app_database"
-                    ).build();
+                    )
+                            .fallbackToDestructiveMigration()
+                            .build();
                 }
             }
         }
