@@ -1,6 +1,8 @@
 package com.example.mobile_dev_project;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -48,6 +50,16 @@ UserProfileActivity extends BaseActivity {
                         : ((user.email != null) ? user.email : user.uid);
                 displayName.setText(name);
             }
+        });
+
+
+        Button logoutButton = findViewById(R.id.logoutId);
+
+
+        logoutButton.setOnClickListener(v ->{
+            FirebaseAuth.getInstance().signOut();
+            //startActivity(new Intent(this, LoginActivity.class));
+            finish();
         });
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
