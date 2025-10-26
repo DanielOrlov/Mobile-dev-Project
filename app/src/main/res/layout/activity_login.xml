@@ -80,21 +80,6 @@
         android:layout_height="wrap_content"
         android:text="Register" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/buttonToGoHome"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Go Home"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:backgroundTint="#2196F3"
-        android:textColor="@android:color/white"
-        app:cornerRadius="24dp"
-        app:icon="@drawable/ic_home"
-        app:iconPadding="8dp"
-        app:iconGravity="textStart"
-        android:layout_marginBottom="24dp" />
-
     <!-- Social Login Divider -->
     <TextView
         android:layout_width="wrap_content"

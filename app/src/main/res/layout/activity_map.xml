@@ -28,22 +28,6 @@
         </androidx.cardview.widget.CardView>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnLogin"
-            style="@style/Widget.MaterialComponents.Button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Login"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="16dp"
-            app:cornerRadius="24dp"
-            android:backgroundTint="#4CAF50"
-            android:textColor="@android:color/white"
-            app:icon="@drawable/ic_login"
-            app:iconPadding="8dp"
-            app:iconGravity="textStart" />
-
-        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnLocation"
             style="@style/Widget.MaterialComponents.Button"
             android:layout_width="match_parent"
@@ -56,22 +40,6 @@
             android:backgroundTint="#FF9800"
             android:textColor="@android:color/white"
             app:icon="@drawable/ic_location"
-            app:iconPadding="8dp"
-            app:iconGravity="textStart" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnUserProfile"
-            style="@style/Widget.MaterialComponents.Button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="User Profile"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="16dp"
-            app:cornerRadius="24dp"
-            android:backgroundTint="#9C27B0"
-            android:textColor="@android:color/white"
-            app:icon="@drawable/ic_user"
             app:iconPadding="8dp"
             app:iconGravity="textStart" />
 

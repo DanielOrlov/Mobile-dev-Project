@@ -58,7 +58,7 @@ UserProfileActivity extends BaseActivity {
 
         logoutButton.setOnClickListener(v ->{
             FirebaseAuth.getInstance().signOut();
-            //startActivity(new Intent(this, LoginActivity.class));
+            startActivity(new Intent(this, LoginActivity.class));
             finish();
         });
 

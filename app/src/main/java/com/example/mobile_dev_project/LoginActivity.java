@@ -61,10 +61,6 @@ public class LoginActivity extends AppCompatActivity {
                     });
         });
 
-        binding.buttonToGoHome.setOnClickListener(v -> {
-            finish();
-        });
-
         registerButton.setOnClickListener(v ->
                 startActivity(new Intent(this, RegisterActivity.class)));
 

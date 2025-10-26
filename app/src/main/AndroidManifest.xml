@@ -13,23 +13,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MobiledevProject">
+
+        <!-- LoginActivity is now the main launcher activity -->
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true"
+            android:label="@string/title_activity_login">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+
+        <!-- Other app activities -->
         <activity
             android:name=".RegisterActivity"
             android:exported="false" />
-        <!-- MapActivity is now the main launcher activity -->
         <activity
             android:name=".MapActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity> <!-- Other app activities -->
-        <activity
-            android:name=".LoginActivity"
-            android:exported="false"
-            android:label="@string/title_activity_login" />
+            android:exported="false"/>
         <activity
             android:name=".ReportConditionsActivity"
             android:exported="false" />
