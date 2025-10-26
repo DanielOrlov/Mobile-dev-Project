@@ -12,11 +12,15 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.mobile_dev_project.data.local.dao.UserDao;
 import com.example.mobile_dev_project.data.local.db.AppDatabase;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class
 UserProfileActivity extends BaseActivity {
+    private GoogleSignInClient googleClient;
     private AppDatabase db;
     private UserDao userDao;
 
@@ -35,6 +39,12 @@ UserProfileActivity extends BaseActivity {
             displayName.setText("Not logged in");
             return;
         }
+
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id)) // auto in google-services.json
+                .requestEmail()
+                .build();
+        googleClient = GoogleSignIn.getClient(this, gso);
 
         db = AppDatabase.getInstance(this);
         userDao = db.userDao();
@@ -58,6 +68,7 @@ UserProfileActivity extends BaseActivity {
 
         logoutButton.setOnClickListener(v ->{
             FirebaseAuth.getInstance().signOut();
+            googleClient.signOut();
             startActivity(new Intent(this, LoginActivity.class));
             finish();
         });
