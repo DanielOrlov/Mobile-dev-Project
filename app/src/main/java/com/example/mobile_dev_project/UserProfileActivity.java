@@ -17,6 +17,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.facebook.login.LoginManager;
 
 public class
 UserProfileActivity extends BaseActivity {
@@ -68,7 +69,13 @@ UserProfileActivity extends BaseActivity {
 
         logoutButton.setOnClickListener(v ->{
             FirebaseAuth.getInstance().signOut();
-            googleClient.signOut();
+
+            if (googleClient != null) {
+                googleClient.signOut();
+            }
+
+            LoginManager.getInstance().logOut();
+
             startActivity(new Intent(this, LoginActivity.class));
             finish();
         });

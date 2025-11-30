@@ -27,6 +27,17 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.GoogleAuthProvider;
 
+import com.facebook.AccessToken;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
+import com.facebook.login.LoginManager;
+
+import com.google.firebase.auth.FacebookAuthProvider;
+
+
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -35,6 +46,9 @@ public class LoginActivity extends AppCompatActivity {
     private ActivityResultLauncher<Intent> googleSignInLauncher;
     private ActivityLoginBinding binding;
     private FirebaseAuth mAuth;
+
+    private CallbackManager callbackManager;
+    private LoginButton facebookLoginButton;
 
     @Override
     protected void onStart() {
@@ -65,26 +79,63 @@ public class LoginActivity extends AppCompatActivity {
         Button registerButton = binding.register;
         ProgressBar loadingProgressBar = binding.loading;
 
+        // Facebook callback manager
+        callbackManager = CallbackManager.Factory.create();
+
+        facebookLoginButton = findViewById(R.id.btnFacebook);
+        facebookLoginButton.setPermissions("email", "public_profile");
+        facebookLoginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                // Got Facebook AccessToken → send to Firebase
+                handleFacebookAccessToken(loginResult.getAccessToken());
+            }
+
+            @Override
+            public void onCancel() {
+                Toast.makeText(LoginActivity.this, "Facebook login canceled", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onError(FacebookException error) {
+                Toast.makeText(LoginActivity.this, "Facebook login error: " + error.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
+
         googleSignInLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 result -> {
-                    if (result.getResultCode() == Activity.RESULT_OK && result.getData() != null) {
-                        Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(result.getData());
-                        try {
-                            GoogleSignInAccount account = task.getResult(ApiException.class);
-                            if (account != null) {
-                                firebaseAuthWithGoogle(account.getIdToken());
-                            } else {
-                                Toast.makeText(this, "Google sign-in failed", Toast.LENGTH_SHORT).show();
-                            }
-                        } catch (ApiException e) {
-                            Toast.makeText(this, "Google sign-in error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                    // Log the result code so we can see what's going on
+                    int rc = result.getResultCode();
+                    // (optional) add this at top of file: private static final String TAG = "LoginActivity";
+                    // Log.d(TAG, "Google sign-in resultCode = " + rc);
+
+                    if (result.getData() == null) {
+                        Toast.makeText(this, "Google sign-in: no data returned", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                    Task<GoogleSignInAccount> task =
+                            GoogleSignIn.getSignedInAccountFromIntent(result.getData());
+
+                    try {
+                        GoogleSignInAccount account = task.getResult(ApiException.class);
+                        if (account != null) {
+                            firebaseAuthWithGoogle(account.getIdToken());
+                        } else {
+                            Toast.makeText(this, "Google sign-in failed: null account", Toast.LENGTH_SHORT).show();
                         }
-                    } else {
-                        Toast.makeText(this, "Google sign-in canceled", Toast.LENGTH_SHORT).show();
+                    } catch (ApiException e) {
+                        int statusCode = e.getStatusCode();
+                        Toast.makeText(
+                                this,
+                                "Google sign-in error: " + statusCode + " - " + e.getMessage(),
+                                Toast.LENGTH_LONG
+                        ).show();
                     }
                 }
         );
+
 
         loginButton.setOnClickListener(v -> {
             String email = usernameEditText.getText().toString().trim();  // treat username as email for Firebase
@@ -155,6 +206,31 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.makeText(this, "Firebase auth failed: " + msg, Toast.LENGTH_LONG).show();
                     }
                 });
+    }
+
+    private void handleFacebookAccessToken(AccessToken token) {
+        AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
+        mAuth.signInWithCredential(credential)
+                .addOnCompleteListener(this, task -> {
+                    if (task.isSuccessful()) {
+                        FirebaseUser user = mAuth.getCurrentUser();
+                        Toast.makeText(LoginActivity.this, "Signed in with Facebook", Toast.LENGTH_SHORT).show();
+                        updateUI(user);  // goes to MapActivity
+                    } else {
+                        String msg = (task.getException() != null) ? task.getException().getMessage() : "Sign-in failed";
+                        Toast.makeText(LoginActivity.this, "Facebook auth failed: " + msg, Toast.LENGTH_LONG).show();
+                        updateUI(null);
+                    }
+                });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        // Pass the result to Facebook
+        if (callbackManager != null) {
+            callbackManager.onActivityResult(requestCode, resultCode, data);
+        }
     }
 
 }
