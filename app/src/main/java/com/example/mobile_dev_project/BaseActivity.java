@@ -18,8 +18,6 @@ public class BaseActivity extends AppCompatActivity {
         super.setContentView(R.layout.activity_base);
 
         // Navbar buttons
-        setupNavBarButton(R.id.btnLocation, LocationProfileActivity.class);
-        setupNavBarButton(R.id.btnReportConditions, ReportConditionsActivity.class);
         setupNavBarButton(R.id.btnProfile, UserProfileActivity.class);
         setupNavBarButton(R.id.buttonToGoHome, MapActivity.class);
         // Settings button (placeholder)

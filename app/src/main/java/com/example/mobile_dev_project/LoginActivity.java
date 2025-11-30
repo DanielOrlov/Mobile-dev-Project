@@ -138,7 +138,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
         loginButton.setOnClickListener(v -> {
-            String email = usernameEditText.getText().toString().trim();  // treat username as email for Firebase
+            String email = usernameEditText.getText().toString().trim();
             String password = passwordEditText.getText().toString();
 
             if (email.isEmpty()) { usernameEditText.setError("Email required"); return; }
@@ -173,8 +173,6 @@ public class LoginActivity extends AppCompatActivity {
         if (user != null) {
             startActivity(new Intent(this, MapActivity.class));
             finish();
-        } else {
-            // Stay here; you could also show a message or clear errors.
         }
     }
 
@@ -188,17 +186,6 @@ public class LoginActivity extends AppCompatActivity {
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
                         FirebaseUser fu = FirebaseAuth.getInstance().getCurrentUser();
-                        // (Optional) upsert to Room like you did for email/password:
-                        //  - uid = fu.getUid()
-                        //  - email = fu.getEmail()
-                        //  - displayName = fu.getDisplayName()
-                        //  - photoUrl = fu.getPhotoUrl() != null ? fu.getPhotoUrl().toString() : null
-                        //  - timestamps...
-                        //  - dao.upsert(user) on background thread
-
-                        // navigate to home
-                        // startActivity(new Intent(this, MapActivity.class));
-                        // finish();
                         Toast.makeText(this, "Signed in with Google", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(this, MapActivity.class));
                     } else {

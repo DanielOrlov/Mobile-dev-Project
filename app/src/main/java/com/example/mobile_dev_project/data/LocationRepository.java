@@ -39,4 +39,11 @@ public class LocationRepository {
             getAllLocations(callback);
         });
     }
+
+    public void getLocationById(int locationId, Consumer<Location> callback) {
+        executorService.execute(() -> {
+            Location location = locationDao.getLocationById(locationId);
+            callback.accept(location);
+        });
+    }
 }

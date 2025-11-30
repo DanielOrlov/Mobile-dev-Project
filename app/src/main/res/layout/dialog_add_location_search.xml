@@ -17,8 +17,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Search for a place (cafe, restaurant, etc.)"
-        android:textSize="14sp"
+        android:text="Tap on the map to select a location, then enter details below"
+        android:textSize="12sp"
         android:layout_marginBottom="8dp"
         android:textColor="#666666"/>
 
@@ -31,12 +31,29 @@
         android:layout_marginBottom="16dp"
         android:background="@drawable/search_background"
         android:padding="12dp"
-        android:textSize="16sp"/>
+        android:textSize="16sp"
+        android:completionThreshold="1"
+        android:dropDownHeight="300dp"
+        android:dropDownVerticalOffset="0dp"/>
+
+    <!-- GPS Coordinates Display -->
+    <TextView
+        android:id="@+id/textViewGpsCoordinates"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="GPS Coordinates: Obtaining location..."
+        android:textSize="12sp"
+        android:layout_marginBottom="12dp"
+        android:textColor="#4CAF50"
+        android:padding="8dp"
+        android:background="#E8F5E9"
+        android:textStyle="bold"/>
 
     <TextView
+        android:id="@+id/textViewManualEntry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Or enter details manually:"
+        android:text="Enter location details:"
         android:textSize="14sp"
         android:layout_marginBottom="12dp"
         android:textColor="#666666"/>
@@ -45,7 +62,7 @@
         android:id="@+id/editTextLocationName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Location Name"
+        android:hint="Location Name *"
         android:inputType="textCapWords"
         android:layout_marginBottom="8dp"
         android:background="@drawable/edit_text_background"
@@ -53,15 +70,60 @@
         android:textSize="16sp"/>
 
     <EditText
+        android:id="@+id/editTextPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Phone (optional)"
+        android:inputType="phone"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/edit_text_background"
+        android:padding="12dp"
+        android:textSize="16sp"/>
+
+    <EditText
+        android:id="@+id/editTextAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Address (optional)"
+        android:inputType="textPostalAddress"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/edit_text_background"
+        android:padding="12dp"
+        android:textSize="16sp"/>
+
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email (optional)"
+        android:inputType="textEmailAddress"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/edit_text_background"
+        android:padding="12dp"
+        android:textSize="16sp"/>
+
+    <EditText
+        android:id="@+id/editTextDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Description (optional)"
+        android:inputType="textMultiLine"
+        android:minLines="2"
+        android:maxLines="4"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/edit_text_background"
+        android:padding="12dp"
+        android:textSize="16sp"
+        android:gravity="top"/>
+
+    <!-- Hidden fields for coordinates (auto-filled from GPS) -->
+    <EditText
         android:id="@+id/editTextLatitude"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Latitude"
         android:inputType="numberDecimal"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/edit_text_background"
-        android:padding="12dp"
-        android:textSize="16sp"/>
+        android:visibility="gone"/>
 
     <EditText
         android:id="@+id/editTextLongitude"
@@ -69,10 +131,7 @@
         android:layout_height="wrap_content"
         android:hint="Longitude"
         android:inputType="numberDecimal"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/edit_text_background"
-        android:padding="12dp"
-        android:textSize="16sp"/>
+        android:visibility="gone"/>
 
     <LinearLayout
         android:layout_width="match_parent"

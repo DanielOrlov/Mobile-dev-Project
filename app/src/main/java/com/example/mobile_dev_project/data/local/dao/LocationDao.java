@@ -17,6 +17,9 @@ public interface LocationDao {
     @Query("SELECT * FROM location WHERE uid IN (:locationIds)")
     List<Location> loadAllByIds(int[] locationIds);
 
+    @Query("SELECT * FROM location WHERE uid = :locationId LIMIT 1")
+    Location getLocationById(int locationId);
+
 //    @Query("SELECT * FROM location WHERE location_name LIKE :location_name)
 //    Location findByName(String name);
 

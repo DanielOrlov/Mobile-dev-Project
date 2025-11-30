@@ -19,7 +19,7 @@
         <!-- Google Maps API Key -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="APIKEY" />
+            android:value="AIzaSyAEyEpWFPvA17FEzQAy-vIuakBzh_EbUwg" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"

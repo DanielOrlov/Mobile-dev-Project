@@ -18,6 +18,18 @@ public class Location {
     @ColumnInfo(name = "longitude")
     public double longitude;
 
+    @ColumnInfo(name = "phone")
+    public String phone;
+
+    @ColumnInfo(name = "address")
+    public String address;
+
+    @ColumnInfo(name = "email")
+    public String email;
+
+    @ColumnInfo(name = "description")
+    public String description;
+
     // Default constructor for Room
     public Location() {}
 
@@ -27,5 +39,21 @@ public class Location {
         this.locationName = locationName;
         this.latitude = latitude;
         this.longitude = longitude;
+        this.phone = "";
+        this.address = "";
+        this.email = "";
+        this.description = "";
+    }
+
+    // Full constructor with contact information
+    @Ignore
+    public Location(String locationName, double latitude, double longitude, String phone, String address, String email, String description) {
+        this.locationName = locationName;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.phone = phone != null ? phone : "";
+        this.address = address != null ? address : "";
+        this.email = email != null ? email : "";
+        this.description = description != null ? description : "";
     }
 }
