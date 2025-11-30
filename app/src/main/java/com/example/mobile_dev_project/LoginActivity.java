@@ -105,23 +105,37 @@ public class LoginActivity extends AppCompatActivity {
         googleSignInLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 result -> {
-                    if (result.getResultCode() == Activity.RESULT_OK && result.getData() != null) {
-                        Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(result.getData());
-                        try {
-                            GoogleSignInAccount account = task.getResult(ApiException.class);
-                            if (account != null) {
-                                firebaseAuthWithGoogle(account.getIdToken());
-                            } else {
-                                Toast.makeText(this, "Google sign-in failed", Toast.LENGTH_SHORT).show();
-                            }
-                        } catch (ApiException e) {
-                            Toast.makeText(this, "Google sign-in error: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                    // Log the result code so we can see what's going on
+                    int rc = result.getResultCode();
+                    // (optional) add this at top of file: private static final String TAG = "LoginActivity";
+                    // Log.d(TAG, "Google sign-in resultCode = " + rc);
+
+                    if (result.getData() == null) {
+                        Toast.makeText(this, "Google sign-in: no data returned", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                    Task<GoogleSignInAccount> task =
+                            GoogleSignIn.getSignedInAccountFromIntent(result.getData());
+
+                    try {
+                        GoogleSignInAccount account = task.getResult(ApiException.class);
+                        if (account != null) {
+                            firebaseAuthWithGoogle(account.getIdToken());
+                        } else {
+                            Toast.makeText(this, "Google sign-in failed: null account", Toast.LENGTH_SHORT).show();
                         }
-                    } else {
-                        Toast.makeText(this, "Google sign-in canceled", Toast.LENGTH_SHORT).show();
+                    } catch (ApiException e) {
+                        int statusCode = e.getStatusCode();
+                        Toast.makeText(
+                                this,
+                                "Google sign-in error: " + statusCode + " - " + e.getMessage(),
+                                Toast.LENGTH_LONG
+                        ).show();
                     }
                 }
         );
+
 
         loginButton.setOnClickListener(v -> {
             String email = usernameEditText.getText().toString().trim();  // treat username as email for Firebase
